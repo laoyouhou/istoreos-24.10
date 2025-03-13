@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # 修改默认IP
-sed -i 's/192.168.100.1/192.168.2.1/g' package/istoreos-files/Makefile
-sed -i 's/192.168.1.1/192.168.2.1/g' package/istoreos-files/Makefile
+sed -i 's/192.168.100.1/192.168.100.1/g' package/istoreos-files/Makefile
+sed -i 's/192.168.1.1/192.168.100.1/g' package/istoreos-files/Makefile
 # TTYD
 sed -i 's/services/system/g' feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
 # sed -i '3 a\\t\t"order": 50,' feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
@@ -43,8 +43,8 @@ sed -i 's/services/nas/g' feeds/istoreos_ipk/op-fileBrowser/luci-app-filebrowser
 sed -i 's/msgstr "Socat"/msgstr "端口转发"/g' feeds/third_party/luci-app-socat/po/zh-cn/socat.po
 
 ##加入作者信息
-sed -i "s/DISTRIB_DESCRIPTION='*.*'/DISTRIB_DESCRIPTION='iStoreOS-$(date +%Y%m%d)'/g"  package/base-files/files/etc/openwrt_release
-sed -i "s/DISTRIB_REVISION='*.*'/DISTRIB_REVISION=' By JayKwok'/g" package/base-files/files/etc/openwrt_release
+# sed -i "s/DISTRIB_DESCRIPTION='*.*'/DISTRIB_DESCRIPTION='iStoreOS-$(date +%Y%m%d)'/g"  package/base-files/files/etc/openwrt_release
+# sed -i "s/DISTRIB_REVISION='*.*'/DISTRIB_REVISION=' By JayKwok'/g" package/base-files/files/etc/openwrt_release
 
 # 移除要替换的包
 rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,sing-box,adguardhome}
@@ -122,8 +122,8 @@ sed -i 's/2.openwrt.pool.ntp.org/time1.cloud.tencent.com/g' package/base-files/f
 sed -i 's/3.openwrt.pool.ntp.org/time2.cloud.tencent.com/g' package/base-files/files/bin/config_generate
 
 # 更改 banner
-rm -rf package/base-files/files/etc/banner
-cp -af feeds/istoreos_ipk/patch/diy/banner package/base-files/files/etc/
+# rm -rf package/base-files/files/etc/banner
+# cp -af feeds/istoreos_ipk/patch/diy/banner package/base-files/files/etc/
 
 # tailscale
 # rm -rf feeds/packages/net/tailscale
